@@ -1,6 +1,7 @@
 const submitBtn = document.querySelector("button");
 const formSection = document.querySelector("form");
 const inputArea = document.querySelector("input");
+const citiesUl = document.querySelector(".cities");
 
 formSection.addEventListener("submit", addCityHandler);
 let lat;
@@ -61,5 +62,17 @@ function gettingGeoInfo(data) {
       const { description, icon } = weather[0];
       console.log(weather, description);
       console.log(data, cityName, main.temp, icon);
+
+      citiesUl.innerHTML += `
+ <li class="city">
+
+    <p class="city-name">${cityName}<sup>${countryCode}</sup></p>
+    <div class="city-temp">${main.temp}°C</div>
+  
+    <img class="city-icon" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="${description}">
+    <figcaption>${description}</figcaption>
+  </li> 
+    
+    `;
     });
 }
