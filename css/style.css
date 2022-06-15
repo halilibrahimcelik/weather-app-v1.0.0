@@ -171,6 +171,7 @@ body {
 
 .ajax-section .city-name sup {
   padding: 0.2em 0.6em;
+  margin-left: 0.4rem;
   border-radius: 30px;
   color: var(--text_light);
   background: var(--orange);

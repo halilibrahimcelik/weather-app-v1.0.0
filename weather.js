@@ -27,12 +27,10 @@ function addCityHandler(e) {
         return response.json();
       })
       .then((data) => {
-        let newArr = [];
-        console.log(data[0].name, data[0].country), console.log(data);
         lat = data[0].lat;
         lon = data[0].lon;
         cityName = data[0].name;
-        console.log(lat);
+        let newArr = [];
         countryCode = data[0].country;
         newArr.push(lat, lon, countryCode, cityName);
 
