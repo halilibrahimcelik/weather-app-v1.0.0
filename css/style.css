@@ -111,10 +111,11 @@ body {
 
 .top-banner form .msg {
   position: absolute;
-  bottom: -40px;
+  bottom: -55px;
   left: 0;
   max-width: 450px;
   min-height: 40px;
+  margin-top: 10rem;
 }
 
 
@@ -200,6 +201,41 @@ body {
 #logo{
   width: 100px;
   height: 100px;
+}
+
+
+
+
+/* PopUp
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.pop-up-container{
+  background-color: rgba(0 ,0,0, 0.3);
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right: 0;
+  
+  display:none;
+  align-items: center;
+  justify-content: center;
+}
+.popUp{
+  background-color: #2980b9;
+  border-radius: 6px;
+  box-shadow: 0 15px 10px 3px  rgba(0 ,0,0, 0.3);
+  padding:10px;
+  text-align: center;
+}
+.popUp button{
+  cursor:pointer;
+  background-color: white;
+  color:#2980b9;
+  border:0;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 /* MQ

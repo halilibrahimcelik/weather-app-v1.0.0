@@ -23,21 +23,16 @@
       <form>
         <input type="text" placeholder="Search for a city" autofocus>
         <button type="submit">SUBMIT</button>
-        <span class="msg"></span>
+        <span class="msg">
+
+        </span>
       </form>
     </div>
   </section>
   <section class="ajax-section">
     <div class="container">
       <ul class="cities">
-        <!-- <li class="city">
-
-          <p class="city-name">Izmir<sup>TR</sup></p>
-          <div class="city-temp">13°C</div>
-          <div ></div>
-          <img class="city-icon" src="http://openweathermap.org/img/wn/${}@4x.png" alt="${}">
-          <figcaption>few clouds</figcaption>
-        </li> -->
+  
       </ul>
     </div>
   </section>
@@ -47,6 +42,14 @@
       </small>
     </div>
   </footer>
+
+  <div class="pop-up-container" id="popUp-container">
+    <div class="popUp">
+      <h2 id="final-Message"></h2>
+      <button id="search-again" type="submit">Search Again</button>
+    </div>
+  </div>
+
   <script src="weather.js"></script>
 </body>
 
