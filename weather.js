@@ -11,7 +11,6 @@ const finalMessage = document.getElementById("final-Message");
 formSection.addEventListener("submit", addCityHandler);
 searchAgainBtn.addEventListener("click", () => {
   popUp.style.display = "none";
-  // window.location.reload();
 });
 resetBtn.addEventListener("click", () => {
   window.location.reload();
@@ -20,7 +19,7 @@ let lat;
 let lon;
 let countryCode;
 let cityName;
-
+let APICodeWeather = "953bc5137dc75c2350b34981a79761f7";
 let cityNames = [];
 let count = {};
 // const x = EncryptStringAES(APICode);
