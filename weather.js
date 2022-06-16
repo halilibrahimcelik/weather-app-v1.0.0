@@ -11,7 +11,7 @@ const finalMessage = document.getElementById("final-Message");
 formSection.addEventListener("submit", addCityHandler);
 searchAgainBtn.addEventListener("click", () => {
   popUp.style.display = "none";
-  window.location.reload();
+  // window.location.reload();
 });
 let lat;
 let lon;
@@ -31,32 +31,32 @@ function addCityHandler(e) {
   inputArea.value = "";
 
   if (cityName.trim()) {
-    fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APICode}`
-    )
+    axios
+      .get(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APICode}`
+      )
       .then((response) => {
-        if (!response.ok) throw new Error(response.statusText);
-        return response.json();
-      })
-      .then((data) => {
-        lat = data[0].lat;
-        lon = data[0].lon;
-        cityName = data[0].name;
-        let newArr = [];
-        countryCode = data[0].country;
-        newArr.push(lat, lon, countryCode, cityName);
-        if (lat === undefined) {
-          console.log("patpat");
-          return;
-        }
+        const data = response.data[0];
+        console.log(data);
+        lat = data.lat;
+        lon = data.lon;
 
-        return newArr;
+        cityName = data.name;
+        let newArr = [];
+        countryCode = data.country;
+        newArr.push(lat, lon, countryCode, cityName);
+        console.log(lat, lon, cityName);
+
+        return gettingGeoInfo(newArr);
       })
-      .then((data) => gettingGeoInfo(data))
       .catch((error) => {
+        if (error) {
+          cityNames.pop(cityName); //!I remove invalid city name from city name lists
+        }
         console.log(error);
-        finalMessage.innerText = `Dou you really think that such  "${cityName}" name exists🙄`;
+        finalMessage.innerText = `Dou you really think that such  "${cityName}"  city name exists🙄`;
         popUp.style.display = "flex";
+        formSection.getAttribute("disabled", null);
       });
   } else {
     alert("Please enter a valid city name");
@@ -70,13 +70,16 @@ function gettingGeoInfo(data) {
   cityName = data[3];
   console.log(cityName);
 
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APICode}&units=metric`
-  )
-    .then((response) => response.json())
-    .then((data) => {
+  axios
+    .get(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APICode}&units=metric`
+    )
+    .then((response) => {
+      const { data } = response;
+      //!Checking dublicate city names
+
       cityNames.forEach((names) => {
-        count[names] = (count[names] || 0) + 1;
+        if (names) count[names] = (count[names] || 0) + 1;
         if (count[names] <= 1) {
           msgSpan.innerHTML = ``;
           console.log(names);
