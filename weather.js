@@ -20,9 +20,11 @@ let lat;
 let lon;
 let countryCode;
 let cityName;
-let APICode = "953bc5137dc75c2350b34981a79761f7";
+
 let cityNames = [];
 let count = {};
+// const x = EncryptStringAES(APICode);
+
 function addCityHandler(e) {
   e.preventDefault();
 
@@ -36,7 +38,7 @@ function addCityHandler(e) {
   if (cityName.trim()) {
     axios
       .get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APICode}`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APICodeWeather}`
       )
       .then((response) => {
         const data = response.data[0];
@@ -57,9 +59,9 @@ function addCityHandler(e) {
           cityNames.pop(cityName); //!I remove invalid city name from city name lists
         }
         console.log(error);
+        formSection.getAttribute("disabled", null);
         finalMessage.innerText = `Dou you really think that such  "${cityName}"  city name exists🙄`;
         popUp.style.display = "flex";
-        formSection.getAttribute("disabled", null);
       });
   } else {
     alert("Please enter a valid city name");
@@ -75,7 +77,7 @@ function gettingGeoInfo(data) {
 
   axios
     .get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APICode}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APICodeWeather}&units=metric`
     )
     .then((response) => {
       const { data } = response;
