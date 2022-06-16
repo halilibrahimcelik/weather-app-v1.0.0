@@ -107,7 +107,7 @@ function renderTODom(data) {
   <li class="city">
  
      <p class="city-name">${cityName}<sup>${countryCode}</sup></p>
-     <div class="city-temp">${main.temp}°C</div>
+     <div class="city-temp">${parseInt(main.temp)}°C</div>
    
      <img class="city-icon" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="${description}">
      <figcaption>${description}</figcaption>
