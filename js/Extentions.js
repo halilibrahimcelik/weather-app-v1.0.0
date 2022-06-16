@@ -1,4 +1,4 @@
-﻿// let APICodeWeather = "953bc5137dc75c2350b34981a79761f7";
+﻿let APICodeWeather = "953bc5137dc75c2350b34981a79761f7";
 
 function EncryptStringAES(text) {
   if (text != null) {

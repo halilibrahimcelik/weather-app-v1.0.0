@@ -19,10 +19,9 @@ let lat;
 let lon;
 let countryCode;
 let cityName;
-let APICodeWeather = "953bc5137dc75c2350b34981a79761f7";
+
 let cityNames = [];
 let count = {};
-// const x = EncryptStringAES(APICode);
 
 function addCityHandler(e) {
   e.preventDefault();
@@ -30,7 +29,7 @@ function addCityHandler(e) {
   let cityName = inputArea.value;
 
   cityNames.push(cityName);
-  console.log(cityNames);
+  // console.log(cityNames);
 
   inputArea.value = "";
 
@@ -86,8 +85,7 @@ function gettingGeoInfo(data) {
         if (names) count[names] = (count[names] || 0) + 1;
         if (count[names] <= 1) {
           msgSpan.innerHTML = ``;
-          console.log(names);
-          console.log("yay");
+
           renderTODom(data);
           return;
         } else {
