@@ -1,4 +1,4 @@
-const submitBtn = document.querySelector("button");
+const resetBtn = document.querySelector("#resetBtn");
 const formSection = document.querySelector("form");
 const inputArea = document.querySelector("input");
 const citiesUl = document.querySelector(".cities");
@@ -12,6 +12,9 @@ formSection.addEventListener("submit", addCityHandler);
 searchAgainBtn.addEventListener("click", () => {
   popUp.style.display = "none";
   // window.location.reload();
+});
+resetBtn.addEventListener("click", () => {
+  window.location.reload();
 });
 let lat;
 let lon;

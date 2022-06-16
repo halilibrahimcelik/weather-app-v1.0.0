@@ -104,7 +104,23 @@ body {
   background: var(--red);
   transition: background 0.3s ease-in-out;
 }
+.top-banner form div{
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 15px 20px;
+  margin-left: 15px;
+  border-radius: 5px;
+  background: var(--red);
+  transition: background 0.3s ease-in-out;
+}
 
+.top-banner form div:hover{
+  background: var(--darkred);
+}
 .top-banner form button:hover {
   background: var(--darkred);
 }
@@ -270,6 +286,10 @@ body {
     width: 100%;
   }
 
+  .top-banner form div{
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
   .top-banner form button {
     margin: 20px 0 0 0;
   }
