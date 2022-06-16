@@ -40,7 +40,7 @@ function addCityHandler(e) {
       )
       .then((response) => {
         const data = response.data[0];
-        console.log(data);
+        // console.log(data);
         lat = data.lat;
         lon = data.lon;
 
@@ -48,7 +48,7 @@ function addCityHandler(e) {
         let newArr = [];
         countryCode = data.country;
         newArr.push(lat, lon, countryCode, cityName);
-        console.log(lat, lon, cityName);
+        // console.log(lat, lon, cityName);
 
         return gettingGeoInfo(newArr);
       })
@@ -71,7 +71,7 @@ function gettingGeoInfo(data) {
   lon = data[1];
   countryCode = data[2];
   cityName = data[3];
-  console.log(cityName);
+  // console.log(cityName);
 
   axios
     .get(
